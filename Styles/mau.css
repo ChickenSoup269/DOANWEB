@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+.vobanh {
+    border: 1px solid #ccc;
+}
+
+.vobanh .benngoai {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.vobanh .the {
+    background: #fff;
+    width: 330px;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    pointer-events: none;
+    position: absolute;
+    justify-content: space-between;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: black;
+}
+
+.the .noidungani {
+    display: flex;
+    align-items: center;
+}
+
+.vobanh .the.anh {
+    position: absolute;
+    left: 10px;
+}
+
+.the .anh img {
+    height: 72px;
+    width: 51px;
+    object-fit: cover;
+}
+
+.the .details {
+    margin-left: 20px;
+}
+
+.details span {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.the a img {
+    width: 48px;
+    height: 50px;
+}

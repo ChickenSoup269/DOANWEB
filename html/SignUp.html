@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link REL="shortcut icon" href="/img/icon.png">
+
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Fira Sans', sans-serif;
+            background: linear-gradient(#000000 0%, #de0008 100%);
+        }
+
+        .blog-card {
+            position: absolute;
+            height: 370px;
+            width: 95%;
+            max-width: 850px;
+            margin: auto;
+            border-radius: 25px;
+            background: white;
+            box-shadow: 0px 10px 50px rgba(255, 0, 0, 0.3);
+        }
+
+        .inner-partCV {
+            position: absolute;
+            display: flex;
+            height: 360px;
+            align-items: center;
+            justify-content: center;
+            padding: 0 25px;
+        }
+
+        #imgTap:checked~.inner-partCV {
+            padding: 0;
+            transition: .1s ease-in;
+        }
+
+        .inner-partCV .img {
+            height: 260px;
+            width: 260px;
+            flex-shrink: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 2px 3px 15px rgba(252, 56, 56, .1);
+        }
+
+        #imgTap:checked~.inner-partCV .img {
+            height: 370px;
+            width: 850px;
+            z-index: 99;
+            margin-top: 10px;
+            transition: .3s .2s ease-in;
+        }
+
+        .img img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            opacity: 0;
+            transition: .6s;
+        }
+
+        #tap-1:checked~.inner-partCV .img-1,
+        #tap-2:checked~.inner-partCV .img-2,
+        #tap-3:checked~.inner-partCV .img-3 {
+            opacity: 1;
+            transition-delay: .2s;
+        }
+
+        .contentCVB {
+            padding: 0 20px 0 35px;
+            width: 530px;
+            margin-left: 50px;
+            opacity: 0;
+            transition: .6s;
+        }
+
+        #imgTap:checked~.inner-partCV .content {
+            display: none;
+        }
+
+        #tap-1:checked~.inner-partCV .content-1VB,
+        #tap-2:checked~.inner-partCV .content-2VB,
+        #tap-3:checked~.inner-partCV .content-3VB {
+            opacity: 1;
+            margin-left: 0px;
+            z-index: 100;
+            transition-delay: .3s;
+        }
+
+        .contentCVB span {
+            display: block;
+            color: #7b7992;
+            margin-bottom: 15px;
+            font-size: 22px;
+            font-weight: 500
+        }
+
+        .contentCVB .titleVB {
+            font-size: 30px;
+            font-weight: 700;
+            color: #0d0925;
+            margin-bottom: 20px;
+        }
+
+        .contentCVB .textCVB {
+            color: #4e4a67;
+            font-size: 19px;
+            margin-bottom: 30px;
+            line-height: 1.5em;
+            text-align: justify;
+        }
+
+        .contentCVB button {
+            display: inline-flex;
+            padding: 15px 20px;
+            border: none;
+            font-size: 16px;
+            text-transform: uppercase;
+            color: #fff0e6;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-radius: 10px;
+            cursor: pointer;
+            outline: none;
+            background-color: black;
+            transition: ease-in 0.5s;
+        }
+
+        .contentCVB button:hover {
+            transition: ease-in 0.3s;
+            background: white;
+            color: black;
+            border: 1px solid black;
+        }
+
+        .sliders {
+            position: absolute;
+            bottom: 25px;
+            left: 65%;
+            transform: translateX(-50%);
+            z-index: 12;
+        }
+
+        #imgTap:checked~.sliders {
+            display: none;
+        }
+
+        .sliders .tap {
+            position: relative;
+            height: 10px;
+            width: 50px;
+            background: #d9d9d9;
+            border-radius: 5px;
+            display: inline-flex;
+            margin: 0 3px;
+            cursor: pointer;
+        }
+
+        .sliders .tap:hover {
+            background: #cccccc;
+        }
+
+        .sliders .tap:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: -100%;
+            background: black;
+            border-radius: 10px;
+            transform: scaleX(0);
+            transition: transform .6s;
+            transform-origin: left;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        #tap-1:checked~.sliders .tap-1:before,
+        #tap-2:checked~.sliders .tap-2:before,
+        #tap-3:checked~.sliders .tap-3:before {
+            transform: scaleX(1);
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="blog-card">
+        <input type="radio" name="select" id="tap-1" checked>
+        <input type="radio" name="select" id="tap-2">
+        <input type="radio" name="select" id="tap-3">
+        <input type="checkbox" id="imgTap">
+        <div class="sliders">
+            <label for="tap-1" class="tap tap-1"></label>
+            <label for="tap-2" class="tap tap-2"></label>
+            <label for="tap-3" class="tap tap-3"></label>
+        </div>
+        <div class="inner-partCV">
+            <label for="imgTap" class="img">
+                <img class="img-1" src="https://media.sohuutritue.net.vn/files/huongmi/2022/05/17/netflix-logo-2219.jpg">
+            </label>
+            <div class="contentCVB content-1VB">
+                <span>180,000₫/Month</span>
+                <div class="titleVB">
+                    <img src="/img/icon.png" alt=""> Basic
+                </div>
+                <div class="textCVB">
+                    Video quality - Good
+
+                    Resolution - 480p
+
+                    65+ top Live
+
+                    Devices can watch - ALL Devices
+                </div>
+                <a style="text-decoration: none;" href="/html/Movie.html"><button>Register now</button></a>
+            </div>
+        </div>
+        <div class="inner-partCV">
+            <label for="imgTap" class="img">
+                <img class="img-2" src="https://ict-imgs.vgcloud.vn/2022/07/25/09/6-ly-do-nguoi-dung-roi-bo-netflix.jpeg">
+            </label>
+            <div class="contentCVB content-2VB">
+                <span>220,000 ₫ /month</span>
+                <div class="titleVB">
+                    <img src="/img/icon.png" alt=""> Standard
+                </div>
+                <div class="textCVB">
+                    Video quality - Better
+
+                    Resolution - 1080p
+
+                    195+ top Live
+
+                    Devices can watch - ALL Devices
+                </div>
+                <a style="text-decoration: none;" href="/html/Movie.html"><button>Register now</button></a>
+            </div>
+        </div>
+        <div class="inner-partCV">
+            <label for="imgTap" class="img">
+                <img class="img-3" src="https://cdn.mos.cms.futurecdn.net/nweoCVrjc376xm23LGVkN3.jpg">
+            </label>
+            <div class="contentCVB content-3VB">
+                <span>260,000 ₫ /month</span>
+                <div class="titleVB">
+                    <img src="/img/icon.png" alt=""> Premium
+                </div>
+                <div class="textCVB">
+                    Video quality - Best
+
+                    Resolution - 4K+HDR
+
+                    95+ top Live
+
+                    Devices can watch - ALL Devices
+                </div>
+                <a style="text-decoration: none;" href="/html/Movie.html"><button>Register now</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
